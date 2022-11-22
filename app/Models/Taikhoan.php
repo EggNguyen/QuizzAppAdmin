@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; // add soft delete
+use Laravel\Sanctum\HasApiTokens;
 
 /**
  * Class Taikhoan
@@ -27,7 +28,8 @@ use Illuminate\Database\Eloquent\SoftDeletes; // add soft delete
  * @package App\Models
  */
 class Taikhoan extends Model
-{
+{	use HasApiTokens;
+
 	protected $table = 'taikhoan';
 	protected $primaryKey = 'ID';
 	public $timestamps = false;
