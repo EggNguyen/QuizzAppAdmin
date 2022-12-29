@@ -1,6 +1,6 @@
 
-<h2>Đăng Ký</h2>
-<form method="POST" action="{{ route('dangky') }}">
+<h2 align="center">Đăng Ký</h2>
+<form method="POST" action="{{ route('dangky') }}" align="center">
     @csrf
     <div class="form-group">
         <label for="TenTaiKhoan">Tên tài khoản:</label>

@@ -1,5 +1,5 @@
 
-<form action="/taikhoan/create" method="post">
+<form action="/taikhoan/create" method="post" align="center">
         @csrf
         <label for="TenTaiKhoan">
         Tên Tài Khoản

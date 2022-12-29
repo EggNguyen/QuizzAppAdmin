@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <form action="{{route('admin_login')}}" method="post">
+    <form action="{{route('admin_login')}}" method="post" align="center">
         @csrf
         <label>Tên tài khoản</label> <input type="text" name="TenTaiKhoan"><br>
         <label>Mật khẩu</label> <input type="password" name="MatKhau"><br>
-        <input type="submit">
+        <button type="submit">Đăng Nhập</button>
 
     </form>
 </body>

@@ -24,15 +24,18 @@ use Illuminate\Database\Eloquent\Model;
 class Lichsu extends Model
 {
 	protected $table = 'lichsu';
+	protected $primaryKey = 'ID';
+
 	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
-		'ID' => 'int',
 		'ID_TaiKhoan' => 'int',
 		'SoCauDung' => 'int',
 		'TongDiem' => 'int',
-		'TrangThai' => 'int'
+		'TrangThai' => 'int',
+		'NgayChoi' => 'date'
+
 	];
 
 	protected $dates = [

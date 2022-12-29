@@ -28,7 +28,6 @@ class Linhvuc extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'ID' => 'int',
 		'TrangThai' => 'int'
 	];
 

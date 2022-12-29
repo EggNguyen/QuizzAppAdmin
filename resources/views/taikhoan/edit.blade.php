@@ -1,4 +1,4 @@
-<form action="/taikhoan/update/{{ $taikhoan->ID }}" method="post">
+<form action="/taikhoan/update/{{ $taikhoan->ID }}" method="post" align="center">
         @csrf
         <label for="TenTaiKhoan">
         Tên Tài Khoản
