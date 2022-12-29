@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\DangkyController;
+use App\Http\Controllers\TaiKhoanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+ Route::get('/index', function () {
     return view('index');
 });
+Route::view('/', 'admin_login');
 
+Route::get('/admin_login', function () {
+    return view('admin_login');
+});
 Route::view('taikhoan_index','taikhoan_index');
 Route::get('linhvuc', function () {
     return view('linhvuc');
@@ -25,9 +31,13 @@ Route::get('linhvuc', function () {
 Route::get('cauhoi', function () {
     return view('cauhoi');
 })->name('cauhoi');
+Route::get('email',[TaiKhoanController::class,'forgotpassword']);
 
-Route::get('/taikhoan/create', [App\Http\Controllers\TaiKhoanController::class, 'create']);
-Route::post('/taikhoan/create', [App\Http\Controllers\TaiKhoanController::class, 'store']);
+Route::post('/admin_login',[TaiKhoanController::class,'adminlogin'])->name('admin_login');
+Route::get('/taikhoan/dangky',[App\Http\Controllers\DangkyController::class,'show'])->name('dangky');
+
+Route::post('/taikhoan/dangky',[App\Http\Controllers\DangkyController::class,'create'])->name('dangky');
+
 
 Route::get('/taikhoan/update/{ID}', [App\Http\Controllers\TaiKhoanController::class, 'edit']);
 Route::post('/taikhoan/update/{ID}', [App\Http\Controllers\TaiKhoanController::class, 'update']);

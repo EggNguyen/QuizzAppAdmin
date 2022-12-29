@@ -14,10 +14,19 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('/register', [TaiKhoanController::class, 'register']);
+Route::post('/login', [TaiKhoanController::class, 'login']);
+Route::post('/updatepoint', [TaiKhoanController::class, 'updatepoint']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->group(function (Request $request) {
+//     Route::get('/taikhoan',function(Request $request){
+//         return $request->taikhoan();
+//     });
+// });
+Route::group(['middleware' => ['auth:sanctum']],function(){
+    Route::get('/taikhoan',[TaiKhoanController::class,'taikhoan']);
+    Route::post('/logout',[TaiKhoanController::class,'logout']);
+
 });
 
-Route::post('/login', [TaiKhoanController::class, 'login']);
-Route::post('/register', [TaiKhoanController::class, 'register']);
+

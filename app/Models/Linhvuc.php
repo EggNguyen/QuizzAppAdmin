@@ -24,9 +24,11 @@ class Linhvuc extends Model
 {
 	protected $table = 'linhvuc';
 	protected $primaryKey = 'ID';
+	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
+		'ID' => 'int',
 		'TrangThai' => 'int'
 	];
 

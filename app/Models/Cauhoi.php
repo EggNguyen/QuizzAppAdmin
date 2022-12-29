@@ -30,9 +30,11 @@ class Cauhoi extends Model
 {
 	protected $table = 'cauhoi';
 	protected $primaryKey = 'ID';
+	public $incrementing = false;
 	public $timestamps = false;
 
 	protected $casts = [
+		'ID' => 'int',
 		'LinhVuc_ID' => 'int',
 		'Diem' => 'int',
 		'TrangThai' => 'int'

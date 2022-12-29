@@ -6,55 +6,52 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes; // add soft delete
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-
 /**
  * Class Taikhoan
  * 
  * @property int $ID
  * @property string $TenTaiKhoan
  * @property string $MatKhau
- * @property int|null $Sdt
- * @property Carbon $NgayTao
+ * @property int|null $Credit
+ * @property string|null $Email
  * @property int $VaiTro
  * @property int $TrangThai
- * 
- * @property Collection|Nguoichoi[] $nguoichois
+ * @property int $Diem
+ * @property string|null $remember_token
  *
  * @package App\Models
  */
 class Taikhoan extends Model
-{	use HasApiTokens;
-
+{	use HasFactory,Notifiable,HasApiTokens;
 	protected $table = 'taikhoan';
 	protected $primaryKey = 'ID';
 	public $timestamps = false;
 
 	protected $casts = [
-		'Sdt' => 'int',
+		'Credit' => 'int',
 		'VaiTro' => 'int',
-		'TrangThai' => 'int'
+		'TrangThai' => 'int',
+		'Diem' => 'int'
 	];
 
-	protected $dates = [
-		'NgayTao'
+	protected $hidden = [
+		'remember_token'
 	];
 
 	protected $fillable = [
 		'TenTaiKhoan',
 		'MatKhau',
-		'Sdt',
-		'NgayTao',
+		'Credit',
+		'Email',
 		'VaiTro',
-		'TrangThai'
+		'TrangThai',
+		'Diem',
+		'remember_token'
 	];
-
-	public function nguoichois()
-	{
-		return $this->hasMany(Nguoichoi::class, 'ID_TaiKhoan');
-	}
 }
